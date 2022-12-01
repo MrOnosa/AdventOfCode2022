@@ -1,4 +1,31 @@
-﻿for ($i = 1; $i -le 25; $i += 1)
+﻿for ($i = 1; $i -le 9; $i += 1)
+{
+    mkdir "Day0$i"
+    New-Item "Day0$i\test-input.txt"
+    New-Item "Day0$i\puzzle-input.txt"
+    mkdir "Day0$i\Day0$i-1"
+    mkdir "Day0$i\Day0$i-2"
+    Set-Location "Day0$i\Day0$i-1"
+    dotnet new console --framework net7.0
+    dotnet new gitignore
+    Remove-Item "Program.cs"
+    Copy-Item "..\..\Template.cs" -Destination "Program.cs"
+    Copy-Item "..\..\.template-vscode" -Recurse -Destination ".vscode"
+    ((Get-Content -path ".\.vscode\launch.json" -Raw) -replace "Day1-1","Day0$i-1") | Set-Content -Path ".\.vscode\launch.json"
+    ((Get-Content -path ".\.vscode\tasks.json" -Raw) -replace "Day1-1","Day0$i-1") | Set-Content -Path ".\.vscode\tasks.json"
+    dotnet build
+    Set-Location "..\..\Day0$i\Day0$i-2"
+    dotnet new console --framework net7.0
+    dotnet new gitignore
+    Remove-Item "Program.cs"
+    Copy-Item "..\..\Template.cs" -Destination "Program.cs"
+    Copy-Item "..\..\.template-vscode" -Recurse -Destination ".vscode"
+    ((Get-Content -path ".\.vscode\launch.json" -Raw) -replace "Day1-1","Day0$i-2") | Set-Content -Path ".\.vscode\launch.json"
+    ((Get-Content -path ".\.vscode\tasks.json" -Raw) -replace "Day1-1","Day0$i-2") | Set-Content -Path ".\.vscode\tasks.json"
+    dotnet build
+    Set-Location "..\..\"
+}
+for ($i = 10; $i -le 25; $i += 1)
 {
     mkdir "Day$i"
     New-Item "Day$i\test-input.txt"
