@@ -5,7 +5,7 @@ Stopwatch stopWatch = new Stopwatch();
 stopWatch.Start();
 List<int> calorieAggregation = new List<int>();
 int elfIndex = 0;
-foreach (string line /*Store text into string records*/ in System.IO.File.ReadLines(@".\..\puzzle-input.txt"))
+foreach (string line /*Store text into string records*/ in System.IO.File.ReadLines(@"puzzle-input.txt"))
 {
     Console.WriteLine($"Input: {line}");
     if(string.IsNullOrWhiteSpace(line)){

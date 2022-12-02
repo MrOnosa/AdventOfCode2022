@@ -1,7 +1,7 @@
-﻿using System.Diagnostics;
+using System.Diagnostics;
 
-Console.WriteLine("Hello World!");
-foreach (string line /*Store text into string records*/ in System.IO.File.ReadLines(@".\..\test-input.txt"))
+Console.WriteLine("Day 18-1");
+foreach (string line /*Store text into string records*/ in System.IO.File.ReadLines(@"test-input.txt"))
 {
     Console.WriteLine($"Input: {line}");
 }
@@ -11,3 +11,7 @@ stopWatch.Start();
 stopWatch.Stop();
 
 Console.WriteLine($"Result: - Elapsed {stopWatch.Elapsed} ");
+
+
+
+
