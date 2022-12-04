@@ -1,7 +1,8 @@
 name: Update README ⭐
 on:
-  schedule:
-    - cron: "56 * * * *"  # Every 4 hours
+  push:
+    paths:
+      - 'Day*/**/*.cs' # Only update when a day's code is pushed
   workflow_dispatch:
 
 jobs:
